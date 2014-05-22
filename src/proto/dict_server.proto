@@ -1,0 +1,21 @@
+
+package bds;
+option cc_generic_services = true;
+
+message SeekRequest {
+    repeated bytes keys = 2;
+}
+
+message SeekResult {
+    optional int32 status = 1;
+    optional bytes value = 2;
+}
+
+message SeekResponse {
+    repeated SeekResult results = 2;
+}
+
+service DictServer {
+    rpc Seek(SeekRequest) returns(SeekResponse);
+}
+

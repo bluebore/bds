@@ -1,4 +1,3 @@
 bds
 ===
-
-bds
+A simple dict server.

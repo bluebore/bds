@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "PROTOBUF_PATH=$HOME/root/third-64/protobuf" > config.mk
+echo "SOFA_PATH=$HOME/root/public/sofa-pbrpc" >> config.mk
+echo "SNAPPY_PATH=$HOME/root/third-64/snappy" >> config.mk
+
+SERVER_SRC_FILES=`find ./src/ -name *.cc | sort | tr "\n" " "`
+
+echo "SERVER_SRC=$SERVER_SRC_FILES" >> config.mk
