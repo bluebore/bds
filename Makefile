@@ -20,8 +20,6 @@ clean:
 
 SERVER_OBJS = $(SERVER_SRC:.cc=.o)
 
-dict_server: gen_proto $(SERVER_OBJS)
+dict_server: $(SERVER_OBJS) $(SERVER_HEADER)
 	$(CXX) $(LDFLAGS) $(SERVER_OBJS) $(LIBRARY) -o dict_server
 
-gen_proto: src/proto/dict_server.proto
-	$(PROTOBUF_PATH)/bin/protoc --cpp_out=src/ --proto_path=src/proto/ src/proto/dict_server.proto

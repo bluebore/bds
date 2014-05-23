@@ -7,9 +7,9 @@
 namespace bds {
 
 void DictServerImpl::Seek(::google::protobuf::RpcController* controller,
-            const SeekRequest* request,
-            SeekResponse* response,
-            ::google::protobuf::Closure* done) {
+        const SeekRequest* request,
+        SeekResponse* response,
+        ::google::protobuf::Closure* done) {
     for (int i = 0; i < request->keys_size(); i++) {
         SeekResult* result = response->add_results();
         result->set_status(-1);
@@ -17,4 +17,13 @@ void DictServerImpl::Seek(::google::protobuf::RpcController* controller,
     done->Run();
 }
 
+void DictServerImpl::LoadDict(::google::protobuf::RpcController* controller,
+        const LoadDictRequest* request,
+        LoadDictResponse* response,
+        ::google::protobuf::Closure* done) {
+    response->set_status(-1);
+    done->Run();
 }
+
+} // namespace bds
+

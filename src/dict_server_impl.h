@@ -18,6 +18,11 @@ public:
             const ::bds::SeekRequest* request,
             ::bds::SeekResponse* response,
             ::google::protobuf::Closure* done);
+    virtual void LoadDict(::google::protobuf::RpcController* controller,
+            const ::bds::LoadDictRequest* request,
+            ::bds::LoadDictResponse* response,
+            ::google::protobuf::Closure* done);
+
 };
 
 }

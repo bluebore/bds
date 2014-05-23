@@ -1,9 +1,17 @@
 #!/bin/sh
 
-echo "PROTOBUF_PATH=$HOME/root/third-64/protobuf" > config.mk
-echo "SOFA_PATH=$HOME/root/public/sofa-pbrpc" >> config.mk
-echo "SNAPPY_PATH=$HOME/root/third-64/snappy" >> config.mk
+PROTOBUF_PATH=$HOME/root/third-64/protobuf
+SOFA_PATH=$HOME/root/public/sofa-pbrpc
+SNAPPY_PATH=$HOME/root/third-64/snappy
+
+echo "PROTOBUF_PATH=$PROTOBUF_PATH" > config.mk
+echo "SOFA_PATH=$SOFA_PATH" >> config.mk
+echo "SNAPPY_PATH=$SNAPPY_PATH" >> config.mk
+
+${PROTOBUF_PATH}/bin/protoc --cpp_out=src/ --proto_path=src/proto/ src/proto/dict_server.proto
 
 SERVER_SRC_FILES=`find ./src/ -name *.cc | sort | tr "\n" " "`
+SERVER_HEADER_FILES=`find ./src/ -name *.h | sort | tr "\n" " "`
 
 echo "SERVER_SRC=$SERVER_SRC_FILES" >> config.mk
+echo "SERVER_HEADER=$SERVER_HEADER_FILES" >> config.mk
