@@ -28,3 +28,4 @@ SERVER_OBJS = $(SERVER_SRC:.cc=.o)
 
 dict_server: $(SERVER_OBJS) $(SERVER_HEADER)
 	$(CXX) $(LDFLAGS) $(SERVER_OBJS) $(LIBRARY) -o dict_server
+
