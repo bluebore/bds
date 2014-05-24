@@ -1,16 +1,6 @@
-/***************************************************************************
- * 
- * Copyright (c) 2014, Baidu.com, Inc. All Rights Reserved
- * 
- **************************************************************************/
- 
- /**
- * @file dict_server_main.cc
- * @author yanshiguang02@baidu.com
- * @date 2014/05/22 08:44:44
- * @brief 
- *  
- **/
+// Copyright (c) 2014 YanShiguang. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
 
 #include <sofa/pbrpc/pbrpc.h>
 #include "dict_server_impl.h"
