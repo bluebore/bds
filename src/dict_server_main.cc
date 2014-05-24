@@ -12,6 +12,7 @@
  *  
  **/
 
+#include <stdio.h>
 #include <sofa/pbrpc/pbrpc.h>
 #include "dict_server_impl.h"
 

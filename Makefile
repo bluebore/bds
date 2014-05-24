@@ -4,8 +4,9 @@ include config.mk
 CXX=g++
 INCPATH=-I$(PROTOBUF_PATH)/include -I$(SOFA_PATH)/include
 CXXFLAGS=-W -Wall -Wno-unused-parameter -fPIC -D_GNU_SOURCE -D__STDC_LIMIT_MACROS -g $(INCPATH)
-LIBRARY=$(SOFA_PATH)/lib/libsofa_pbrpc.a $(PROTOBUF_PATH)/lib/libprotobuf.a $(SNAPPY_PATH)/lib/libsnappy.a
-LDFLAGS=-lpthread -lrt -lz
+LIBRARY=$(SOFA_PATH)/lib/libsofa-pbrpc.a $(PROTOBUF_PATH)/lib/libprotobuf.a \
+	$(SNAPPY_PATH)/lib/libsnappy.a $(LZ_PATH)/lib/libz.a
+LDFLAGS=-lpthread -lrt
 
 all: dict_server
 
