@@ -10,11 +10,16 @@ LDFLAGS=-lpthread -lrt
 
 all: dict_server
 
+install:
+	mkdir -p ./output/bin
+	cp -rf dict_server ./output/bin/
+
 clean: 
 	rm -rf dict_server
 	rm -f src/*.o
 	rm -f src/*.pb.cc
 	rm -f src/*.pb.h
+	rm -rf output
 
 %.o: %.cc
 	$(CXX) $(CXXFLAGS) -c $< -o $@
