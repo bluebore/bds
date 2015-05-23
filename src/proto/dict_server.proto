@@ -2,6 +2,12 @@
 package bds;
 option cc_generic_services = true;
 
+enum Status {
+    kStatusOk = 0;
+    KStatusNotFound = 1;
+    KStatusBusy = 2;
+}
+
 message SeekRequest {
     optional string dict_name = 2;
     repeated bytes keys = 3;
@@ -16,6 +22,19 @@ message SeekResponse {
     repeated SeekResult results = 2;
 }
 
+message KeyValuePair {
+    optional bytes key = 1;
+    optional bytes value = 2;
+}
+
+message WriteRequest {
+    repeated KeyValuePair key_value_pairs = 1;
+}
+
+message WriteResponse {
+    optional Status status = 1;
+}
+
 message LoadDictRequest {
     optional string dict_name = 2;
     optional string dict_path = 3;
@@ -27,6 +46,7 @@ message LoadDictResponse {
 
 service DictServer {
     rpc Seek(SeekRequest) returns(SeekResponse);
+    rpc Write(WriteRequest) returns(WriteResponse);
     rpc LoadDict(LoadDictRequest) returns(LoadDictResponse);
 }
 
